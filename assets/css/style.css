@@ -8,7 +8,8 @@
 }
 
 body {
-  background: #333;
+  background: url('http://thecodeplayer.com/u/m/b1.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 h1 {
@@ -28,6 +29,9 @@ ul {
 
 ul li {
   list-style-type: none;
+  /* relative  positioning for list items along with overflow hidden to contain overflowing ripple */
+  position: relative;
+  overflow: hidden;
 }
 
 ul li a {
@@ -37,6 +41,10 @@ ul li a {
   padding: 10px 15px;
   text-decoration: none;
   cursor: pointer; /* links are dummy without href values */
+  /* prevent text selection */
+  user-select: none;
+  /* static positioned elements appear behind absolutely positioned siblings (.ink in this case) hence we will make links relatively positioned to bring them above .ink */
+  position: relative;
 }
 
 /* .ink styles - elements which will create the ripple effect. Size and position
